@@ -1,0 +1,12 @@
+<div class="sunlight" aria-hidden="true"><canvas class="sunlight-canvas"></canvas></div>
+
+<style>
+  .sunlight { position: absolute; inset: 0; overflow: hidden; pointer-events: none; border-radius: inherit; background: radial-gradient(ellipse at 95% 12%, #ffedc730, transparent 65%); }
+  .sunlight-canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; opacity: .85; }
+  @media (max-width: 700px) { .sunlight-canvas { opacity: .6; } }
+  @media print { .sunlight { display: none; } }
+</style>
+
+<script>
+  import '../scripts/sunlight';
+</script>

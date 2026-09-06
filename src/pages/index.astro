@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Sketch from '../components/Sketch.astro';
+import WindowScene from '../components/WindowScene.astro';
+import Sunlight from '../components/Sunlight.astro';
+import FooterTiger from '../components/FooterTiger.astro';
+import SketchClock from '../components/SketchClock.astro';
+import { portfolio } from '../data/portfolio';
+---
+<Layout title={`${portfolio.name} — Software Engineer`} description={portfolio.intro}>
+  <div class="splash" aria-hidden="true">
+    <div class="splash-name"><span>Riya</span><span>Kumar<span class="splash-dot">.</span></span></div>
+    
+  </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="paper" id="top">
+    <Sunlight />
+    <div class="site-grid">
+      <main id="main" class="page" tabindex="-1">
+        <header id="about" class="intro">
+          <button class="plant-button" type="button" aria-label="Color in the plant" aria-pressed="false" title="A little color"><Sketch kind="plant" class="intro-plant" /></button>
+          <h1 aria-label={portfolio.name}><button class="photo-trigger" aria-label="Riya Kumar — show photo" aria-expanded="false" aria-controls="profile-photo" title="A face to the name"><span>{portfolio.name}</span><span class="photo-card" id="profile-photo"><span class="photo-tilt"><img src="/images/riya.jpg" alt="Riya Kumar" width="100" height="100" /><span class="photo-caption" aria-hidden="true">hi, it’s me.</span></span></span></button></h1>
+          <div class="profile-line"><p class="subtitle">Software engineer · <span class="location">New York <SketchClock /></span></p><a class="profile-social" href={portfolio.linkedin} aria-label="Riya Kumar on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52ZM7.93 18.75H4.98V9.2h2.95v9.55ZM6.46 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42Zm12.29 10.85H15.8V14.1c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.73H9.51V9.2h2.83v1.3h.04c.39-.74 1.36-1.53 2.79-1.53 2.99 0 3.58 1.97 3.58 4.53v5.25Z"/></svg></a></div>
+          <div class="intro-copy">
+            <p>I build machine learning platforms and data infrastructure at <span class="ink">Disney Streaming.</span></p>
+            <p>{portfolio.about}</p>
+          </div>
+
+        </header>
+
+        <section id="experience" class="section-row" aria-labelledby="experience-title">
+          <h2 id="experience-title">Experience</h2>
+          <ol class="entries">
+            {portfolio.experience.map((job) => (
+              <li class="entry scroll-item">
+                <div class="entry-heading"><h3>{job.company}</h3><span class="period">{job.period}</span></div>
+                <p class="role">{job.role}</p>
+                <p class="description">{job.description}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section id="education" class="section-row education" aria-labelledby="education-title">
+          <h2 id="education-title">Education</h2>
+          <div class="entry scroll-item">
+            <div class="entry-heading"><h3>UC Berkeley</h3><span class="period">{portfolio.education.period}</span></div>
+            <p class="role">{portfolio.education.degree}</p>
+            <p class="description">{portfolio.education.note}</p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <footer class="footer" aria-label="Site footer">
+    <div class="footer-inner">
+      <div class="footer-top"><WindowScene /></div>
+      <div class="footer-name" aria-hidden="true"><span class="name-word">Riya</span> <span class="name-word">Kumar<span class="name-period">.</span></span></div>
+      <div class="footer-bottom"><FooterTiger /><span>© {new Date().getFullYear()} Riya Kumar</span><a href="#top">Back to top <span aria-hidden="true">↑</span></a></div>
+    </div>
+  </footer>
+</Layout>
+
+<script>
+  import '../scripts/smooth-scroll';
+  import '../scripts/page-motion';
+  import '../scripts/personal-details';
+  import '../scripts/joy-motion';
+</script>

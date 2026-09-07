@@ -41,6 +41,24 @@ import { portfolio } from '../data/portfolio';
           </ol>
         </section>
 
+        <section id="projects" class="section-row" aria-labelledby="projects-title">
+          <h2 id="projects-title">Projects</h2>
+          <ol class="entries">
+            {portfolio.projects.map((project) => (
+              <li class="entry scroll-item">
+                <div class="entry-heading"><h3>{project.name}</h3><span class="period">{project.tag}</span></div>
+                {project.role && <p class="role">{project.role}</p>}
+                <p class="description" set:html={project.description} />
+                {project.link && (
+                  <a class="text-link" href={project.link.href} target="_blank" rel="noopener noreferrer">
+                    {project.link.label} <span class="arrow" aria-hidden="true">↗</span>
+                  </a>
+                )}
+              </li>
+            ))}
+          </ol>
+        </section>
+
         <section id="education" class="section-row education" aria-labelledby="education-title">
           <h2 id="education-title">Education</h2>
           <div class="entry scroll-item">

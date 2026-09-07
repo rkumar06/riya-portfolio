@@ -42,6 +42,8 @@ h3 { font-size: var(--text-body); line-height: 1.6; font-weight: 500; }
 .period { color: var(--muted); font-size: var(--text-small); white-space: nowrap; font-variant-numeric: tabular-nums; }
 .role { font-size: var(--text-small); color: var(--muted); margin-top: 3px; }
 .description { font-size: var(--text-body); margin-top: 12px; }
+.description a { text-decoration: underline; text-decoration-color: #c4c3bd; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: text-decoration-color 160ms ease; }
+@media (hover: hover) and (pointer: fine) { .description a:hover { text-decoration-color: #444; } }
 .education { padding-bottom: 72px; }
 .page-signoff { display: flex; gap: 10px; align-items: center; padding: 15px 0 46px 104px; font-size: var(--text-small); color: var(--muted); }
 .page-signoff .sketch { width: 32px; height: 38px; color: #91957d; }
